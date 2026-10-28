@@ -105,9 +105,9 @@ nav a::after{background:linear-gradient(90deg,#8f77ff,#00d9ff);box-shadow:0 0 10
 .marquee{overflow:hidden;padding:20px 0 22px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}
 .marquee-inner{display:flex;width:max-content;animation:marqueeMove 32s linear infinite}
 .marquee:hover .marquee-inner{animation-play-state:paused}
-.marquee-inner span{padding:0 30px;font-size:clamp(18px,2.6vw,26px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:rgba(255,255,255,.30)}
-.marquee-inner b{color:#8f77ff;font-weight:400}
-@supports (-webkit-text-stroke:1px #000){.marquee-inner span{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.30)}}
+.marquee-inner span{padding:0 30px;font-size:clamp(18px,2.6vw,26px);font-weight:800;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:#e6e1ff}
+.marquee-inner b{color:#00d9ff;font-weight:400}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.marquee-inner span{background:linear-gradient(90deg,#e6e1ff,#a78bfa 35%,#00d9ff 75%,#e6e1ff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:marqueeShine 6s linear infinite}@keyframes marqueeShine{to{background-position:200% 0}}}
 @keyframes marqueeMove{to{transform:translateX(-50%)}}
 
 /* ---------- 13. Scroll progress bar + back-to-top button ------------------ */
@@ -138,3 +138,16 @@ body::before{animation:none}
 .reveal{opacity:1!important;transform:none!important;animation:none!important}
 .js-stagger .card,.js-stagger .stat-card,.js-stagger .cert-card{opacity:1!important;transform:none!important}
 }
+
+/* ---------- 17. Low-opacity photographic section backgrounds (fix pass) ---
+   Photos are images already loaded on this page (Dribbble slides + blog
+   covers), so no extra requests. A heavy dark overlay keeps each photo
+   faint (~8-12% visible) with edges fading to the page background, so all
+   text stays fully readable. Patterns/glows sit above the photo. -------- */
+.hero{background-image:linear-gradient(#070914,#070914f2 18%,rgba(7,9,20,.90) 50%,rgba(7,9,20,.94) 82%,#070914),url("../images/slide-dribbble-3.webp");background-size:cover;background-position:center 30%}
+#services{background-image:linear-gradient(#070914,rgba(7,9,20,.92) 16%,rgba(7,9,20,.92) 84%,#070914),url("../images/google-ranking-seo-strategy.webp");background-size:cover;background-position:center}
+#portfolio{background-image:linear-gradient(#070914,rgba(7,9,20,.90) 16%,rgba(7,9,20,.90) 84%,#070914),url("../images/slide-dribbble-2.webp");background-size:cover;background-position:center}
+#about{background-image:linear-gradient(#070914,rgba(7,9,20,.92) 16%,rgba(7,9,20,.92) 84%,#070914),url("../images/branding-and-trust.webp");background-size:cover;background-position:center}
+#testimonials{background-image:linear-gradient(#070914,rgba(7,9,20,.92) 16%,rgba(7,9,20,.92) 84%,#070914),url("../images/personal-branding-online.webp");background-size:cover;background-position:center}
+#blog{background-image:linear-gradient(#070914,rgba(7,9,20,.93) 12%,rgba(7,9,20,.93) 88%,#070914),url("../images/long-form-seo-content.webp");background-size:cover;background-position:center}
+#contact{background-image:linear-gradient(#070914,rgba(7,9,20,.90) 16%,rgba(7,9,20,.90) 84%,#070914),url("../images/whatsapp-marketing-strategy.webp");background-size:cover;background-position:center}
